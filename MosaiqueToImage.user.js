@@ -17,11 +17,10 @@
     'use strict';
 	if(/\/forums\/42-/.test(document.location.href))
 	{
-		GM_addStyle('.img-mosa{margin-right: -0.3em;margin-bottom: -0.53em;}');
+		GM_addStyle('.img-mosa{margin-right: -4px; margin-bottom: -7px;}');
 		document.querySelectorAll(".text-enrichi-forum img.img-shack").forEach(function (img) {
-			if(/^http(s)?:\/\/image\.noelshack\.com\/fichiers\/([0-9]{4})\/([0-9]+)\/([0-9]+)\/([0-9]+)-([0-9]+)-([a-z0-9]{8})\.(png|gif|jpg|jpeg)$/.test(img.alt)||
-			   /^http(s)?:\/\/image\.noelshack\.com\/fichiers\/([0-9]{4})\/([0-9]+)\/([0-9]+)-([0-9]+)-([a-z0-9]{8})\.(png|gif|jpg|jpeg)/.test(img.alt)||
-			   /^http(s)?:\/\/www\.noelshack\.com\/([0-9]{4})-([0-9]+)-([0-9]+)-([0-9]+)-([0-9a-z]{1})\.(png|gif|jpg|jpeg)/.test(img.alt)
+			if(/^https:\/\/image\.noelshack\.com\/fichiers\/(\d+)\/(\d+)\/(\d+)\/(.*)$/.test(img.alt)||
+			   /^http(s)?:\/\/www\.noelshack\.com\/([0-9]{4})-([0-9]+)-([0-9]+)-([0-9]+)-(.*)\.(png|gif|jpg|jpeg)/.test(img.alt)
 			  )
 				img.classList.add("img-mosa");
 		});
